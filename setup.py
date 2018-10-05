@@ -22,6 +22,10 @@ setup(
                 'Programming Language :: Python :: 3.6',
             ],
     install_requires=[
-
+        'gputil',
+        'psutil',
+        'humanize',
+        'tensorflow',
+        'keras'
     ]
 )
