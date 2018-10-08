@@ -40,8 +40,6 @@ except:
               " I Proc size: " + humanize.naturalsize(process.memory_info().rss))
         print('No GPU')
 
-__printm()
-
 
 def print_memory_usage():
     """

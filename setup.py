@@ -26,6 +26,8 @@ setup(
         'psutil',
         'humanize',
         'tensorflow',
-        'keras'
+        'keras',
+        'pandas',
+        'IPython'
     ]
 )
