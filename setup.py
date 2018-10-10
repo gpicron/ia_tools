@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='ia_tools',
     version='0.1.0',
-    packages=find_packages(exclude=['docs', 'tests', 'notebooks']),  # Required
+    packages=find_packages(exclude=['docs', 'tests', 'notebooks', 'rapports']),  # Required
     url='',
     license='',
     author='Geoffrey Picron',
