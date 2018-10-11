@@ -131,7 +131,7 @@ Pour la suite, nous avons limité l'espace de recherche à MobileNet avec un min
 .Analyse des paramètres, exploration affinée
 image::images/Image-101018-100629.680.png[]
 
-Avec le nombre d'itérations effecttuées, il n'est pas possible de dégager de tendance claire.  Il faudrait continuer les itérations mais nous manquons de temps.
+Avec le nombre d'itérations effectuées, il n'est pas possible de dégager de tendance claire.  Il faudrait continuer les itérations mais nous manquons de temps.
 Nous utiliserons le meilleur paramétrage trouvé pour la suite.
 
 == Architecture sélectionnée & résultats
@@ -377,23 +377,30 @@ _________________________________________________________________
 
 Nous avons ensuite entraîné ce modèle avec les images augmentées du dataset 'huge' et analysé sa capacité à classer les images tests
 
-Suite à une fausse manipulation, nous avons perdu notre modèle entraîné avec 16 époques et avons du le réentrainer à la dernière minute en seulement 5 époques.
+Nous avons entraîné le modèle durant 16 époques, et analyser les résultat du modèle final et du modèle qui a donné la meilleure accuracy pendant l'entraînement.
 
-Le résultat est une accurary sur les images tests augmentées d'environ 44% 
+.Historique de l'entraîment
+image::images/Image-111018-022820.167.png[scaledwidth="15cm"]
+
+Le résultat est une accurary sur les images tests augmentées d'environ 51%, mais la matrice de confusion montre que le modèle classe les images de test 'no_fire' comme 'fire' dans 99% des cas, ce qui n'est pas acceptable.
 
 .Matrice de confusion (model final entraîné et test dataset)
-image::images/Image-101018-113931.145.png[scaledwidth="7cm"]
+image::images/Image-111018-023234.846.png[scaledwidth="7cm"]
 
-La matrice de confusion montre que le modèle à ce stade d'entraînement ne fait pas de distinction  entre la classe 'no_fire' et 'start_fire'. 
+Si l'on reprend les poids qui du modèle à la 5 époques d'entraînement, ce qui semble être avant que le modèle n'overfit. L'accuracy est de 58% mais la matrice de confusion montre le classsifieur fait la même erreur.  Dans une utilisation pratique réelle, cela ne serait pas acceptable.
+
+.Matrice de confusion (model entraîné intermédiaire aillant le meilleur score et test dataset)
+image::images/Image-111018-023917.914.png[scaledwidth="7cm"]
 
 == Conclusion
-Pour ce défi, nous avons explorer différentes possibilités de réduire la tendance à l'overfit lorsque les données images d'entrainement est limité. 
+Pour ce défi, nous avons exploré différentes possibilités de réduire la tendance à l'overfit lorsque les données images d'entrainement est limité.
 Sur base de ces données augmentées, nous avons automatisé l'exploration de diverses architectures.
 
 Nous nous sommes focalisés sur des variations autour d'une architecture basée sur un réseau convolutionel pré-entraîné de la librairie Keras.
 Notre "explorateur" automatique n'a pas tourné suffisamment longtemps pour nous donner une idée très précise de l'influence des paramètres sur l'architecture paramétrique proposée. Néanmoins, nous pensons que la stratégie est bonne et qu'il nous sera utile pour les prochains défis.
 
-A l'analyse des résultats, la tendance à l'overfit reste flagrante malgré l'augmentation et si notre exploration s'était limitée à la validation croisée sur le dataset d'entrainement "big" sans mesurer l'accuracy du modèle sur le dataset "test" il aurait été impossible d'identifier une architecture valable. L'importance de qualité et de la quantité des données d'entraînement est pré-dominante.
+A l'analyse des résultats, la tendance à l'overfit reste flagrante malgré l'augmentation et si notre exploration s'était limitée à la validation croisée sur le dataset d'entrainement "big" sans mesurer l'accuracy du modèle sur le dataset "test" il aurait été impossible d'identifier une architecture valable.  L'importance de qualité et de la quantité des données d'entraînement est pré-dominante.
+
 
 
 == Références
