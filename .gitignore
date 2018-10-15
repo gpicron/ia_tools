@@ -213,3 +213,4 @@ venv.bak/
 .idea/vcs.xml
 
 /.idea/
+/tests/build/tests/yolo/
