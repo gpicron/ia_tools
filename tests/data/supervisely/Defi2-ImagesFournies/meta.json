@@ -1,0 +1,23 @@
+{
+  "classes": [
+    {
+      "title": "Keys",
+      "color": "#FB01EF",
+      "shape": "rectangle"
+    },
+    {
+      "title": "Clefs-ploy",
+      "color": "#9DC04A",
+      "shape": "polygon"
+    },
+    {
+      "title": "Clefs",
+      "color": "#57BD3C",
+      "shape": "bitmap"
+    }
+  ],
+  "tags_images": [],
+  "tags_objects": [
+    "Clef"
+  ]
+}

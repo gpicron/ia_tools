@@ -1,9 +1,10 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='ia_tools',
     version='0.1.0',
-    packages=find_packages(exclude=['docs', 'tests', 'notebooks', 'rapports']),  # Required
+    packages=['defia_runtime', 'defia_reporting', 'supervisely_lib'],  # Required
+    package_dir= {'supervisely_lib': 'external/supervisely/supervisely_lib'},
     url='',
     license='',
     author='Geoffrey Picron',
@@ -28,6 +29,10 @@ setup(
         'tensorflow',
         'keras',
         'pandas',
-        'IPython'
+        'IPython',
+        'opencv-contrib-python',
+        'shapely',
+        'python-json-logger',
+        'scikit-image'
     ]
 )
